@@ -1,0 +1,551 @@
+{
+  "97": {
+    "inputs": {
+      "image": "97cba571b1ec775f39a99a11d5ca1653d440a0140d3733c252d7aad63b8de476.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "108": {
+    "inputs": {
+      "filename_prefix": "video/Wan2.2_i2v",
+      "format": "auto",
+      "codec": "auto",
+      "video-preview": "",
+      "video": [
+        "309",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "保存视频"
+    }
+  },
+  "132": {
+    "inputs": {
+      "width": 304,
+      "height": 432,
+      "position": "top-left",
+      "x_offset": 0,
+      "y_offset": 0,
+      "image": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "ImageCrop+",
+    "_meta": {
+      "title": "🔧 Image Crop"
+    }
+  },
+  "137": {
+    "inputs": {
+      "text_input": "",
+      "task": "more_detailed_caption",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 854,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 187598190102139,
+      "image": [
+        "132",
+        0
+      ],
+      "florence2_model": [
+        "339",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "308": {
+    "inputs": {
+      "width": 640,
+      "height": 640,
+      "length": 81,
+      "batch_size": 1,
+      "positive": [
+        "335",
+        0
+      ],
+      "negative": [
+        "316",
+        0
+      ],
+      "vae": [
+        "321",
+        0
+      ],
+      "start_image": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "WanImageToVideo",
+    "_meta": {
+      "title": "图像到视频（Wan）"
+    }
+  },
+  "309": {
+    "inputs": {
+      "fps": 16,
+      "images": [
+        "318",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "创建视频"
+    }
+  },
+  "310": {
+    "inputs": {
+      "shift": 5.000000000000001,
+      "model": [
+        "329",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "采样算法（SD3）"
+    }
+  },
+  "311": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+      "strength_model": 1.0000000000000002,
+      "model": [
+        "323",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "312": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "split_step"
+    }
+  },
+  "313": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": 0,
+      "steps": [
+        "331",
+        0
+      ],
+      "cfg": [
+        "332",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": [
+        "333",
+        0
+      ],
+      "end_at_step": [
+        "331",
+        0
+      ],
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "325",
+        0
+      ],
+      "positive": [
+        "308",
+        0
+      ],
+      "negative": [
+        "308",
+        1
+      ],
+      "latent_image": [
+        "315",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "314": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "315": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 765877795278551,
+      "steps": [
+        "331",
+        0
+      ],
+      "cfg": [
+        "332",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": [
+        "333",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "310",
+        0
+      ],
+      "positive": [
+        "308",
+        0
+      ],
+      "negative": [
+        "308",
+        1
+      ],
+      "latent_image": [
+        "308",
+        2
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "316": {
+    "inputs": {
+      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "clip": [
+        "322",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "317": {
+    "inputs": {
+      "value": 20
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "318": {
+    "inputs": {
+      "samples": [
+        "313",
+        0
+      ],
+      "vae": [
+        "321",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "320": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Enable 4steps LoRA?"
+    }
+  },
+  "321": {
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "322": {
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "323": {
+    "inputs": {
+      "unet_name": "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "324": {
+    "inputs": {
+      "unet_name": "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "325": {
+    "inputs": {
+      "shift": 5.000000000000001,
+      "model": [
+        "330",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "采样算法（SD3）"
+    }
+  },
+  "326": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "split_step"
+    }
+  },
+  "327": {
+    "inputs": {
+      "lora_name": "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+      "strength_model": 1.0000000000000002,
+      "model": [
+        "324",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "328": {
+    "inputs": {
+      "value": 3.5
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "CFG"
+    }
+  },
+  "329": {
+    "inputs": {
+      "switch": [
+        "320",
+        0
+      ],
+      "on_false": [
+        "324",
+        0
+      ],
+      "on_true": [
+        "327",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch (Model)"
+    }
+  },
+  "330": {
+    "inputs": {
+      "switch": [
+        "320",
+        0
+      ],
+      "on_false": [
+        "323",
+        0
+      ],
+      "on_true": [
+        "311",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch (Model)"
+    }
+  },
+  "331": {
+    "inputs": {
+      "switch": [
+        "320",
+        0
+      ],
+      "on_false": [
+        "317",
+        0
+      ],
+      "on_true": [
+        "314",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch (Steps)"
+    }
+  },
+  "332": {
+    "inputs": {
+      "switch": [
+        "320",
+        0
+      ],
+      "on_false": [
+        "328",
+        0
+      ],
+      "on_true": [
+        "334",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch (CFG)"
+    }
+  },
+  "333": {
+    "inputs": {
+      "switch": [
+        "320",
+        0
+      ],
+      "on_false": [
+        "326",
+        0
+      ],
+      "on_true": [
+        "312",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Switch (Split Step)"
+    }
+  },
+  "334": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "CFG"
+    }
+  },
+  "335": {
+    "inputs": {
+      "text": [
+        "137",
+        2
+      ],
+      "clip": [
+        "322",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "336": {
+    "inputs": {
+      "images": [
+        "132",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "337": {
+    "inputs": {
+      "preview_markdown": "The image is a digital illustration of a young woman with long brown hair and red eyes, wearing a red and white kimono with a red bow on her head. She is holding a sword in her right hand and has a determined expression on her face. The background is a night sky with stars and a crescent moon. The woman appears to be in a battle-ready stance, with her left arm raised in the air and her right arm bent at the elbow. She has a sword slung over her shoulder and her hair is styled in loose waves. The overall mood of the image is intense and dramatic.",
+      "preview_text": "The image is a digital illustration of a young woman with long brown hair and red eyes, wearing a red and white kimono with a red bow on her head. She is holding a sword in her right hand and has a determined expression on her face. The background is a night sky with stars and a crescent moon. The woman appears to be in a battle-ready stance, with her left arm raised in the air and her right arm bent at the elbow. She has a sword slung over her shoulder and her hair is styled in loose waves. The overall mood of the image is intense and dramatic.",
+      "previewMode": null,
+      "source": [
+        "137",
+        2
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "预览任意"
+    }
+  },
+  "338": {
+    "inputs": {
+      "model": "NikshepShetty/Florence-2-pixelprose"
+    },
+    "class_type": "DownloadAndLoadFlorence2Lora",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Lora"
+    }
+  },
+  "339": {
+    "inputs": {
+      "model": "microsoft/Florence-2-base",
+      "precision": "fp16",
+      "attention": "sdpa",
+      "convert_to_safetensors": false,
+      "lora": [
+        "338",
+        0
+      ]
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  }
+}
